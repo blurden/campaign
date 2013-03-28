@@ -1,4 +1,15 @@
 Campaign::Application.routes.draw do
+  
+
+
+  # if user not logged in then make pages#home root "home"
+  root :to => 'pages#home'
+  #get "pages/home"
+  get 'about' => 'pages#about'
+
+  
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
