@@ -1,0 +1,69 @@
+$baseFontFamily: Ubuntu;
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+
+$headingsFontFamily: Raleway;
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+$btnPrimaryBackground: purple;
+$navbarBackgroundHighlight: white;
+$navbarBackground: white;
+
+
+@import 'bootstrap';
+
+body {
+	padding-top: 60px;
+	background-color: #1c1b1b;
+	color: $grayLight;
+}
+
+@import 'bootstrap-responsive';
+
+.navbar-inner {
+	@include box-shadow(none !important);
+	border: 0;
+}
+
+.hero-unit{
+
+}
+
+.footer {
+	margin-top: 50px;
+	color: $grayLight;
+	a {
+		color: $gray;
+	}
+}
+
+/* required for jquery masonry */
+
+
+.box {
+	background-color: #1c1b1b;
+	margin: 5px;
+	padding: 5px;
+	font-size: 11px;
+	line-height: 1.4em;
+	float: left;
+
+	
+	width: 214px;
+}
+
+.box img {
+	display: block;
+	width: 100%;
+	-webkit-border-radius: 50em;
+	-moz-border-radius: 50em;
+	border-radius: 50em;
+	box-shadow: 1px 1px 10px #444;
+}
+
+.contact-name {
+	margin: 10px 0 5px;
+}
+
+.heading-link {
+	font-size: $baseFontSize;
+}
