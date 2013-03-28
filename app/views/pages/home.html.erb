@@ -1,1 +1,13 @@
-<h1>Pages#home</h1>
+<% if user_signed_in? %>
+	<%= render 'user_home' %>
+<% else %>
+	<div class="hero-unit">
+		<h1>campaign.io</h1>
+		<p>
+		  Taking the pain out of campaign.
+		</p>
+		<p>
+		  <%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+		</p>
+	</div>
+<% end %>
