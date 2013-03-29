@@ -1,22 +1,23 @@
-Campaign::Application.routes.draw do
+Basetouch::Application.routes.draw do
   
+
+
+  resources :campaigns
 
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
                      controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
 
-  #if the user is logged in then make stacks#index root "home"
+   #if the user is logged in then make stacks#index root "home"
   authenticated :user do
-    root :to => 'pages#home'
+    root :to => 'campaigns#index'
   end
 
   # if user not logged in then make pages#home root "home"
   root :to => 'pages#home'
   #get "pages/home"
   get 'about' => 'pages#about'
-
-
   
 
 

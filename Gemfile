@@ -6,6 +6,7 @@ gem 'devise'
 # gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
+gem 'rename'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

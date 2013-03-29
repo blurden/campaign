@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Campaign::Application.load_tasks
+Basetouch::Application.load_tasks
