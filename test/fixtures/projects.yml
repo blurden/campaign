@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  launchdate: 2013-03-29 09:40:50
+  campaign: 
+
+two:
+  name: MyString
+  launchdate: 2013-03-29 09:40:50
+  campaign: 
