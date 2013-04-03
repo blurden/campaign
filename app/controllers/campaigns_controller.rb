@@ -1,9 +1,10 @@
 class CampaignsController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   # GET /campaigns
   # GET /campaigns.json
   def index
-    @campaigns = Campaign.all
-
+    @campaigns = Campaign.order(sort_column + " " + sort_direction)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @campaigns }
@@ -44,7 +45,7 @@ class CampaignsController < ApplicationController
 
     respond_to do |format|
       if @campaign.save
-        format.html { redirect_to @campaign, notice: 'Campaign was successfully created.' }
+        format.html { redirect_to campaigns_path, notice: 'Campaign was successfully created.' }
         format.json { render json: @campaign, status: :created, location: @campaign }
       else
         format.html { render action: "new" }
@@ -79,5 +80,15 @@ class CampaignsController < ApplicationController
       format.html { redirect_to campaigns_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  
+  def sort_column
+    Campaign.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

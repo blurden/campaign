@@ -1,36 +1,33 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <h1><%= @campaign.name %></h1>
-  <%= link_to 'Edit', edit_campaign_path(@campaign) %> |
-  <%= link_to 'Back', campaigns_path %>
-	<br><br>
-</p>
-<p>
-	<h3>Projects: </h3>
-</p>
-<% @campaign.projects.each do |project| %>
-  <p>
-    <%= project.name %>
-    <b> | Launch Date: </b>
-    <%= project.launchdate %>
-  </p>
-<% end %>
-<br><br>
-<h3>Add a project:</h3>
-<%= form_for([@campaign, @campaign.projects.build]) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :launchdate %><br />
-    <%= f.datetime_select :launchdate %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<h3><%= link_to 'My Campaigns', campaigns_path %> > <%= @campaign.name %></h3>
+<div class="well">
+  <table class="table table-striped">
+  <tr>
+    <th><%= sortable "name", "Project Name" %></th>
+    <th><%= sortable "launchdate", "Target Launch" %></th>
+    <th><%= sortable "territory", "Territory" %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @campaign.projects.each do |project| %>
+  <tr>
+    <td><%= project.name %></td>
+    <td><%= l project.launchdate, :format => :short %></td>
+    <td><%= project.territory %></td>
+    <td><%= link_to 'View', [project.campaign, project] %></td>
+    <td><%= link_to 'Edit', edit_campaign_project_path(@campaign, project) %></td>
+    <td><%= link_to 'Delete', [project.campaign, project],
+            :confirm => 'Are you sure?',
+            :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<%= link_to 'New Project', new_campaign_project_path(@campaign), :class => "btn" %>
+</div>
+<ul class="breadcrumb">
+  <li><%= link_to 'My Campaigns', campaigns_path %><span class="divider">/</span></li>
+  <li><%= @campaign.name %></li>
+</ul>
 
 
 

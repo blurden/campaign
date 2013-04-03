@@ -1,0 +1,11 @@
+<%= simple_form_for([@campaign, @project], html: { class: "form-horizontal", :multipart => true }) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name, input_html: { rows: "3" } %>
+  <%= f.input :territory, :collection => ([["Domestic", "domestic"], ["International", "international"]]), input_html: { rows: "3" }  %>
+  <%= f.input :launchdate, as: :datetime, input_html: { rows: "3" } %>
+  <br />
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+
+
+

@@ -1,23 +1,22 @@
-<h1>My Campaigns</h1>
-
-<table>
+<h3>My Campaigns</h3>
+<div class="well">
+  <table class="table table-striped">
   <tr>
-    <th>Campaign Name</th>
+    <th><%= sortable "name", "Campaign Name" %></th>
+    <th><%= sortable "created_at", "Start Date" %></th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
 <% @campaigns.each do |campaign| %>
   <tr>
     <td><%= campaign.name %></td>
-    <td><%= link_to 'Show', campaign %></td>
+    <td><%= l campaign.created_at, :format => :short %></td>
+    <td><%= link_to 'View', campaign %></td>
     <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
-    <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Campaign', new_campaign_path %>
+<%= link_to 'New Campaign', new_campaign_path, :class => "btn" %>
+</div>

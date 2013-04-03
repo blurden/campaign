@@ -1,6 +1,4 @@
 Basetouch::Application.routes.draw do
-  
-
 
   resources :campaigns do
     resources :projects
@@ -8,7 +6,6 @@ Basetouch::Application.routes.draw do
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
                      controllers: {omniauth_callbacks: "omniauth_callbacks"}
-
 
    #if the user is logged in then make stacks#index root "home"
   authenticated :user do
@@ -19,7 +16,6 @@ Basetouch::Application.routes.draw do
   root :to => 'pages#home'
   #get "pages/home"
   get 'about' => 'pages#about'
-  
 
 
   # The priority is based upon order of creation:

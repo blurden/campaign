@@ -8,6 +8,9 @@ gem 'omniauth-google-oauth2'
 gem 'figaro'
 gem 'rename'
 
+gem 'simple_form'
+gem "handles_sortable_columns"
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
